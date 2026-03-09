@@ -1,7 +1,7 @@
 "use client";
 import "./globals.css";
 import HydrationProvider from "@/src/components/HydrationProvider";
-
+import ReduxProvider from "@/src/redux/Provider";
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -9,8 +9,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
-        <HydrationProvider>{children}</HydrationProvider>
+      <body suppressHydrationWarning={true}>
+        <ReduxProvider>
+          <HydrationProvider>{children}</HydrationProvider>
+        </ReduxProvider>
       </body>
     </html>
   );
