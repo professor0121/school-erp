@@ -27,4 +27,40 @@ export const userService = {
     });
     return newUser;
   },
+  getUsers: async (page: number, limit: number) => {
+    await connectDB();
+    const skip = (page - 1) * limit;
+    const users = await userDao.findAll(skip, limit);
+    const total = await userDao.count();
+    return {
+      users,
+      total,
+      page,
+      limit,
+    };
+  },
+  getUserById: async (id: string) => {
+    await connectDB();
+    const user = await userDao.findById(id);
+    if (!user) {
+      throw new Error("User not found");
+    }
+    return user;
+  },
+  updateUser: async (id: string, updateData: any) => {
+    await connectDB();
+    const user = await userDao.update(id, updateData);
+    if (!user) {
+      throw new Error("User not found");
+    }
+    return user;
+  },
+  deleteUser: async (id: string) => {
+    await connectDB();
+    const user = await userDao.delete(id);
+    if (!user) {
+      throw new Error("User not found");
+    }
+    return user;
+  }
 };

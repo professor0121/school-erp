@@ -6,5 +6,7 @@ export const userDao = {
     findById: (id: string) => User.findById(id),
     findByUniqueId: (uniqueId: string) => User.findOne({ uniqueId }),
     update: (id: string, updateData: any) => User.findByIdAndUpdate(id, updateData, { new: true }),
-    delete: (id: string) => User.findByIdAndDelete(id)
+    delete: (id: string) => User.findByIdAndDelete(id),
+    findAll: (skip: number, limit: number) => User.find().skip(skip).limit(limit),
+    count: () => User.countDocuments()
 }
