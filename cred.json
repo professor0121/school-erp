@@ -1,0 +1,18 @@
+{
+  "users": [
+    {
+      "name": "System Admin",
+      "uniqueId": "ADM001",
+      "email": "admin@school.com",
+      "password": "Admin@123",
+      "role": "ADMIN"
+    },
+    {
+  "name": "Rahul Kumar",
+  "uniqueId": "STD001",
+  "email": "student1@school.com",
+  "password": "Student@123",
+  "role": "STUDENT"
+}
+  ]
+}

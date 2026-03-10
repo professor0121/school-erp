@@ -35,7 +35,6 @@ const UserSchema = new Schema<IUserDocument>(
       "TEACHER",
       "ACCOUNTANT",
       "LIBRARIAN",
-      "FEE_COLLECTOR",
       "STUDENT",
       "PARENT",
       "STAFF",
