@@ -16,6 +16,7 @@ export interface IUser {
   email: string;
   password: string;
   role: UserRole;
+  profileId:Object
   isActive: boolean;
   createdAt?: Date;
   updatedAt?: Date;
