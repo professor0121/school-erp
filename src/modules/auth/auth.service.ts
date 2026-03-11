@@ -3,6 +3,7 @@ import { verifyPassword } from "@/src/utils/bcryptUtil";
 import { generateToken } from "@/src/utils/jwtToken";
 export const authService = {
   login: async (uniqueId: string, password: string) => {
+    console.table({ uniqueId, password });
     if (!uniqueId && !password) {
       return { message: "Unique ID and password are required" };
     }

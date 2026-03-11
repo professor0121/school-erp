@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { authService } from "@/src/modules/auth/auth.service";
+import { connectDB } from "@/src/lib/mongodb";
 
 export const GET = async () => {
   return NextResponse.json(
@@ -9,10 +10,20 @@ export const GET = async () => {
 };
 
 export const POST = async (req: NextRequest) => {
+
   try {
+    console.table({ req })
+    await connectDB();
     const { uniqueId, password } = await req.json();
 
     const result = await authService.login(uniqueId, password);
+
+    if (result.message) {
+      return NextResponse.json(
+        { success: false, message: result.message },
+        { status: 400 }
+      );
+    }
 
     const { token, user } = result;
 
@@ -20,7 +31,7 @@ export const POST = async (req: NextRequest) => {
       {
         success: true,
         data: user,
-        token:token,
+        token: token,
       },
       { status: 200 }
     );

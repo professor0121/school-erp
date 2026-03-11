@@ -36,12 +36,13 @@ export const GET = async (
  */
 export const PUT = async (
   req: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) => {
   try {
+    const { id } = await params;
     const body = await req.json();
 
-    const user = await userService.updateUser(params.id, body);
+    const user = await userService.updateUser(id, body);
 
     return NextResponse.json(
       {
@@ -66,10 +67,11 @@ export const PUT = async (
  */
 export const DELETE = async (
   req: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) => {
   try {
-    await userService.deleteUser(params.id);
+    const { id } = await params;
+    await userService.deleteUser(id);
 
     return NextResponse.json(
       {
