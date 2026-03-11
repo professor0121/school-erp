@@ -7,6 +7,7 @@ export type UserRole =
   | "FEE_COLLECTOR"
   | "STUDENT"
   | "PARENT"
+  | "HR"
   | "STAFF";
 
 export interface IUser {
@@ -16,7 +17,7 @@ export interface IUser {
   email: string;
   password: string;
   role: UserRole;
-  profileId:Object
+  profileId: Object
   isActive: boolean;
   createdAt?: Date;
   updatedAt?: Date;
