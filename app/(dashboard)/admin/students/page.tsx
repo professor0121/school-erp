@@ -15,7 +15,7 @@ export default function StudentsPage() {
 
   useEffect(() => {
     // Pass role as 'student' to filter backend results
-    dispatch(fetchUsers({ role: 'student', page: 1, limit: 10 }));
+    dispatch(fetchUsers({ role: 'STUDENT', page: 1, limit: 10 }));
   }, [dispatch]);
 
   const columns: ColumnDef<User>[] = [
@@ -45,7 +45,7 @@ export default function StudentsPage() {
     },
     { header: 'Joined', accessorKey: 'createdAt' },
   ];
-
+  console.table(users)
   // Client-side filtering as fallback/example
   const filteredUsers = users.filter(user => 
     user.name.toLowerCase().includes(searchTerm.toLowerCase()) ||

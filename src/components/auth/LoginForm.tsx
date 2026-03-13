@@ -121,13 +121,13 @@ export default function LoginForm() {
       <div className="mt-6 p-4 bg-gray-50 rounded-xl border border-gray-100">
         <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">Demo Credentials</p>
         <div className="grid grid-cols-2 gap-2 text-xs">
-          <div className="p-2 bg-white rounded-lg border border-gray-100 cursor-pointer hover:border-indigo-300 transition-colors" onClick={() => { setUniqueId('ADM001'); setPassword('password123'); }}>
+          <div className="p-2 bg-white rounded-lg border border-gray-100 cursor-pointer hover:border-indigo-300 transition-colors" onClick={() => { setUniqueId('ADM001'); setPassword('Admin@123'); }}>
             <span className="font-semibold text-indigo-600 block">Admin</span>
             <span className="text-gray-500 truncate">ADM001</span>
           </div>
-          <div className="p-2 bg-white rounded-lg border border-gray-100 cursor-pointer hover:border-indigo-300 transition-colors" onClick={() => { setUniqueId('TCH001'); setPassword('password123'); }}>
-            <span className="font-semibold text-indigo-600 block">Teacher</span>
-            <span className="text-gray-500 truncate">TCH001</span>
+          <div className="p-2 bg-white rounded-lg border border-gray-100 cursor-pointer hover:border-indigo-300 transition-colors" onClick={() => { setUniqueId('STD001'); setPassword('Student@123'); }}>
+            <span className="font-semibold text-indigo-600 block">Student</span>
+            <span className="text-gray-500 truncate">STD001</span>
           </div>
         </div>
       </div>

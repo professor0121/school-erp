@@ -15,7 +15,7 @@ export default function TeachersPage() {
 
   useEffect(() => {
     // Pass role as 'teacher' to filter backend results
-    dispatch(fetchUsers({ role: 'teacher', page: 1, limit: 10 }));
+    dispatch(fetchUsers({ role: 'TEACHER', page: 1, limit: 10 }));
   }, [dispatch]);
 
   const columns: ColumnDef<User>[] = [

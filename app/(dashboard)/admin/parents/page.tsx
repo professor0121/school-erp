@@ -15,7 +15,7 @@ export default function ParentsPage() {
 
   useEffect(() => {
     // Pass role as 'parent' to filter backend results
-    dispatch(fetchUsers({ role: 'parent', page: 1, limit: 10 }));
+    dispatch(fetchUsers({ role: 'PARENT', page: 1, limit: 10 }));
   }, [dispatch]);
 
   const columns: ColumnDef<User>[] = [

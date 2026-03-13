@@ -32,10 +32,13 @@ export async function POST(req: NextRequest) {
 export async function GET(req: NextRequest) {
   try {
     const { searchParams } = new URL(req.url);
+
     const page = parseInt(searchParams.get("page") || "1", 10);
     const limit = parseInt(searchParams.get("limit") || "10", 10);
+    const role = searchParams.get("role");
 
-    const result = await userService.getUsers(page, limit);
+    // pass role only if exists
+    const result = await userService.getUsers(page, limit, role || undefined);
 
     return NextResponse.json(
       {

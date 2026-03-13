@@ -27,18 +27,21 @@ export const userService = {
     });
     return newUser;
   },
-  getUsers: async (page: number, limit: number) => {
-    await connectDB();
-    const skip = (page - 1) * limit;
-    const users = await userDao.findAll(skip, limit);
-    const total = await userDao.count();
-    return {
-      users,
-      total,
-      page,
-      limit,
-    };
-  },
+getUsers: async (page: number, limit: number, role?: string) => {
+  await connectDB();
+
+  const skip = (page - 1) * limit;
+
+  const users = await userDao.findAll(skip, limit, role);
+  const total = await userDao.count(role);
+
+  return {
+    users,
+    total,
+    page,
+    limit,
+  };
+},
   getUserById: async (id: string) => {
     await connectDB();
     const user = await userDao.findById(id);

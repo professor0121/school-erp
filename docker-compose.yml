@@ -1,0 +1,27 @@
+version: "3.9"
+
+services:
+
+  app:
+    build: .
+    container_name: school_erp_app
+    ports:
+      - "3000:3000"
+    environment:
+      - MONGODB_URI=mongodb://admin:password123@mongo:27017/school_erp_db?authSource=admin
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:7
+    container_name: school_erp_mongo
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password123
+    volumes:
+      - mongo_data:/data/db
+
+volumes:
+  mongo_data:
